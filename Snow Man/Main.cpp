@@ -33,17 +33,7 @@ void RayCasting(){
 	glFlush();
 }
 
-void Resize(int w, int h){
-	int hSize = w * H/W;
-	int wSize = h * W/H;
-
-	if (h >= w) 
-		glViewport(0, (h - hSize)/2, w, hSize);
-	
-	else if (h < w) 
-		glViewport((w - wSize)/2, 0,  wSize, h);
-	
- 
+void Resize(int w, int h){ 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, WidthWindow, HeightWindow, 0, -1.0, 1.0);
@@ -51,10 +41,11 @@ void Resize(int w, int h){
 	glLoadIdentity();
 }
 
+
 int main(int argc, char **argv){
 
-	glutInit(argc, **argv);
-	glutInitContextProfile(GLUT_COMPATIBILY_PROFILE);
+	glutInit(&argc, argv);
+	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
 	glutInitWindowSize(WidthWindow, HeightWindow);
 	glutInitWindowPosition(0, 0);
