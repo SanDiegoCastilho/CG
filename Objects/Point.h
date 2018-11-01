@@ -1,7 +1,5 @@
 #ifndef POINT_HPP
 #define POINT_HPP
-
-// #include "util.h"
 #include "Vector.h"
 
 class Point{

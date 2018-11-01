@@ -2,46 +2,48 @@
 #define VECTOR_HPP
 
 class Vector{
-
-//using namespace std;
+private:
+	double Coordinates[4];
 
 public:
-	//float x,y,z,w;
-	float position[4];
+	double position[4];
 	
+	/*Construtor padrão*/
 	Vector();
-	//Vector(std::initializer_list<float> position);
-	Vector(float position[4]);
-	Vector (float  x, float y, float z);
-	Vector operator + (Vector v2);
-	void operator = (Vector v2);
-	Vector operator -  (Vector v2);
-	//Faz a operação dentro do próprio vértice
-	void operator *=  (float escalar);
-	//Retorna outro vértice com a soma
-	Vector operator  *  (float escalar);
-	
-	void operator /= (float escalar);
 
-	Vector operator / (float escalar);
+	/*Construtor passando um vetor*/
+	Vector(double Coordinates[4]);
+
+	/*Construtor passando valores*/
+	Vector (double  x, double y, double z);
+
+	/*Sobrecarga  operador soma*/
+	Vector operator + (Vector V);
+
+	/*sobrecarga do operado produto (escalar)*/
+	Vector operator  *  (double scalar);
 	
-	// Operação de produto vetorial é vetor ->* vetor2
+	/*sobrecarga operador divisão*/
+	Vector operator / (double escalar);
+	
+	/*sobrecarga de do operador ->* (produto vetorial)*/
 	Vector operator ->* (Vector v2);
 
 
 
-	float getValue(int index);
-	void setValue(int index, float value);
+	double getValue(int index);
+	void setValue(int index, double value);
 
 
 
-	float norma();
+	double norma();
 	void normalizarVertice();
 
-	float produtoEscalar(Vector v2); 
+	double produtoEscalar(Vector v2); 
 	void mostrarVertice ();
 	//ver como fica o produtoDiatico, tendo que criar a classe Matriz
 	//Matriz produtoDiatico();
+	//void operator = (Vector V);
 
 };
 
