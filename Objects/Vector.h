@@ -6,8 +6,6 @@ private:
 	double Coordinates[4];
 
 public:
-	double position[4];
-	
 	/*Construtor padrão*/
 	Vector();
 
@@ -15,13 +13,16 @@ public:
 	Vector(double Coordinates[4]);
 
 	/*Construtor passando valores*/
-	Vector (double  x, double y, double z);
+	Vector(double  x, double y, double z);
 
 	/*Sobrecarga  operador soma*/
 	Vector operator + (Vector V);
 
 	/*sobrecarga do operado produto (escalar)*/
 	Vector operator  *  (double scalar);
+
+	/*sobrecarga do operado produto (escalar)*/
+	double operator  *  (Vector V);
 	
 	/*sobrecarga operador divisão*/
 	Vector operator / (double escalar);
@@ -29,22 +30,29 @@ public:
 	/*sobrecarga de do operador ->* (produto vetorial)*/
 	Vector operator ->* (Vector v2);
 
+	/* Pega valores específicos */
+	double getCoordinate(int index);
 
+	double getX();
+	double getY();
+	double getZ();
 
-	double getValue(int index);
-	void setValue(int index, double value);
+	/* guarda valores por índice */
+	void setCoordinate(int index, double value);
 
+	/* guarda valores específicos */
+	void setX(double x);
+	void setY(double y);
+	void setZ(double z);
 
+	/*Retorna a norma do vetor*/
+	double norm();
 
-	double norma();
-	void normalizarVertice();
+	/*Normaliza o vetor*/
+	void normalize();
 
-	double produtoEscalar(Vector v2); 
-	void mostrarVertice ();
-	//ver como fica o produtoDiatico, tendo que criar a classe Matriz
-	//Matriz produtoDiatico();
-	//void operator = (Vector V);
-
+	/*Debug*/
+	void vectorPrint();
 };
 
 #endif // VECTOR_HPP
