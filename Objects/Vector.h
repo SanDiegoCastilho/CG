@@ -19,10 +19,10 @@ public:
 	Vector operator + (Vector V);
 
 	/*sobrecarga do operado produto (escalar)*/
-	Vector operator  *  (double scalar);
+	Vector operator * (double scalar);
 
 	/*sobrecarga do operado produto (escalar)*/
-	double operator  *  (Vector V);
+	double operator * (Vector V);
 	
 	/*sobrecarga operador divisão*/
 	Vector operator / (double escalar);

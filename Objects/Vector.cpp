@@ -30,9 +30,9 @@ Vector::Vector(double  x, double y, double z){
 	setCoordinate(3, 0);
 }
 
-/*Sobrecarga  operador soma*/
+/*Sobrecarga  operador soma -- (ATENÇÃO: Não ta funcionando)*/
 Vector Vector::operator + (Vector V){
-	Vector sumVector(1, 1, 1);
+	Vector sumVector(0, 0, 0);
 	double sum;
 
 	for (int i = 0; i <= 3; i++){
@@ -43,20 +43,10 @@ Vector Vector::operator + (Vector V){
 	return sumVector;
 }
 
-/*Multiplicação Vetor - escalar*/
-Vector Vector::operator  *  (double scalar){
-	Vector resultingVector(1, 1, 1);
-
-	for (int i = 0; i < 3; i++){
-		resultingVector.setCoordinate(i, getCoordinate(i) * scalar);
-	}
-
-	return resultingVector;
-}
 
 /*sobrecarga operador divisão Vetor - escalar*/
 Vector Vector::operator / (double scalar){
-	Vector resultingVector(1, 1, 1);
+	Vector resultingVector(0, 0, 0);
 
 	for (int i = 0; i < 3; i++){
 		resultingVector.setCoordinate(i, getCoordinate(i) * (1/scalar));
@@ -65,6 +55,16 @@ Vector Vector::operator / (double scalar){
 	return resultingVector;	
 }
 
+/*Multiplicação Vetor - escalar*/
+Vector Vector::operator  *  (double scalar){
+	Vector resultingVector(0, 0, 0);
+
+	for (int i = 0; i < 3; i++){
+		resultingVector.setCoordinate(i, getCoordinate(i) * scalar);
+	}
+
+	return resultingVector;
+}
 /*sobrecarga do operado produto (escalar)*/
 double Vector::operator  *  (Vector V){
 	double result;

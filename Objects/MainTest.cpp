@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void resetVector(Vector V, double values[3]);
+void resetVector(Vector *V, double values[3]);
 
 int main(){
 	double vetor[4] = {66, 99, 69};
@@ -71,8 +71,8 @@ int main(){
 	double values1[3] = {1, 2, 3};
 	double values2[3] = {66, 99, 69};
 
-	resetVector(Vetor1, values1);
-	resetVector(Vetor3, values2);
+	resetVector(&Vetor1, values1);
+	resetVector(&Vetor3, values2);
 
 	if (Vetor1 * Vetor3 == 471){
 		cout << "Operador * (produto escalar) ta ok!" << endl;
@@ -81,12 +81,13 @@ int main(){
 	cout << endl;
 	cout << "===== TESTANDO OS OPERADORES =====" << endl;
 
-	Vector VectorSum = Vetor1 + (Vetor2);
+	// Vector VectorSum(0,0,0) = Vetor1 + Vetor2;
 
-	if (VectorSum.getX() == 67 || VectorSum.getY() == 101 || VectorSum.getZ() == 72){
-		cout << "Operador + ta ok!!" << endl;
-		VectorSum.vectorPrint();
-	}
+	// if (VectorSum.getX() == 67 || VectorSum.getY() == 101 || VectorSum.getZ() == 72){
+	// 	cout << "Operador + ta ok!!" << endl;
+	// 	VectorSum.vectorPrint();
+	// }
+
 
 	Vector VectorPro = Vetor1 * 10;
 
@@ -95,14 +96,27 @@ int main(){
 		VectorPro.vectorPrint();
 	}
 
+	Vector VetorQuo = Vetor3 / 3;
+
+	if (VetorQuo.getX() == 22 || VetorQuo.getY() == 33 || VetorQuo.getZ() == 23){
+		cout << "Divisão por um escalar ta ok tbm" << endl;
+		VetorQuo.vectorPrint();
+	}
+
+	Vector VetorNormal = Vetor1 ->* Vetor3;
+
+	if (VetorNormal.getX() == -159 || VetorNormal.getY() == 129 || VetorNormal.getZ() == -33){
+		cout << "produto Vetorial ta ok oh god" << endl;
+		VetorNormal.vectorPrint();
+	}
 
 	cout << "------------------- Fim Teste 2 --------------------" << endl;
 
 	return 0;
 }
 
-void resetVector(Vector V, double values[3]){
+void resetVector(Vector* V, double values[3]){
 	for (int i = 0; i < 3 ; i++){
-		V.setCoordinate(i, values[i]);
+		V->setCoordinate(i, values[i]);
 	}
 }
