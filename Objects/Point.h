@@ -1,5 +1,6 @@
 #ifndef POINT_HPP
 #define POINT_HPP
+
 #include "Vector.h"
 
 class Point{
@@ -42,7 +43,7 @@ public:
 	void setY(double y);
 	void setZ(double z);	
 
-	double dot(Point P2);
+	// double dot(Point P2);
 
 	/* debug */
 	void mostrarVertice ();

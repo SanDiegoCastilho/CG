@@ -1,31 +1,35 @@
 #include <iostream>
 #include <cmath>
+
 #include "Point.h"
 
 using namespace std;
 
 Point::Point() {
-    Coordnates[0] = 0;
-    Coordnates[1] = 0;
-    Coordnates[2] = 0;
-    Coordnates[3] = 1;
+    for (int i = 0; i < 3 ; i++){
+        this->Coordinates[i] = 0;
+    }
+    
+    setCoordinate(3, 1);
 }
 
 Point::Point(double Coordinates[4]) {
-    this->Coordinates[0] = Coordinates[0];
-    this->Coordinates[1] = Coordinates[1];
-    this->Coordinates[2] = Coordinates[2];
-    this->Coordinates[3] = 1;
+
+    for (int i = 0; i < 3; i++){
+        this->Coordinates[i] = Coordinates[i];        
+    }
+
+    setCoordinate(3, 1);
 }
 
 Point::Point(double x, double y, double z) {
-	Coordinates[0] = x;
-    Coordinates[1] = y;
-    Coordinates[2] = z;
-    Coordinates[3] = 1;
+    setCoordinate(0, x);
+    setCoordinate(1, y);
+    setCoordinate(2, z);
+	setCoordinate(3, 1);
 }
 
-Vector operator - (Point P) {
+Vector Point::operator - (Point P) {
         return Vector(P.getPosition());
 }
 
@@ -35,8 +39,8 @@ Vector operator - (Point P) {
 //     Coordinates[2] = v2.Coordinates[2];
 // }
 
-double getCoordinate(int index) {
-    return Coordinates[index];
+double Point::getCoordinate(int index){
+    return this->Coordinates[index];
 }
 
 double* Point::getPosition() {
@@ -55,7 +59,7 @@ double Point::getZ() {
 	return Coordinates[2];
 }
 
-void setCoordinates(int index, double value) {
+void Point::setCoordinate(int index, double value) {
     Coordinates[index] = value;
 }
 
@@ -71,11 +75,11 @@ void Point::setZ(double z) {
     Coordinates[2] = z;
 }
 
-double Point::dot(Point P2){
-	return Coordinates[0]*P2.getX() + Coordinates[1]*P2.getY() + Coordinates[2]*P2.getZ();
-}
+// double Point::dot(Point P2){
+// 	return Coordinates[0]*P2.getX() + Coordinates[1]*P2.getY() + Coordinates[2]*P2.getZ();
+// }
 
 /* debug */    
 void Point::mostrarVertice() {
-    std::cout << "\nCoordenadas do vetor: " << this->Coordinates[0] << ", " << this->Coordinates[1] << ", " << this->Coordinates[2] << ";" << std::endl;
+    cout << "\nCoordenadas do vetor: " << getCoordinate(0) << ", " << getCoordinate(1) << ", " << getCoordinate(2) << ";" << endl;
 }
