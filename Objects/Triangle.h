@@ -1,5 +1,4 @@
 #include <cmath>
-
 #include "Vector.h"
 #include "Point.h"
 

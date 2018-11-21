@@ -53,7 +53,7 @@
 		Vector NormalVectors[3];
 
 		for (int i = 0; i < 3; i++){
-			IntersectionVectors[i] = Pint - Verteces[i];	
+			IntersectionVectors[i] = Verteces[i] - Pint;
 			NormalVectors[i] = getEdge(i) ->* IntersectionVectors[i];
 		}
 
